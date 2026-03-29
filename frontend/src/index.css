@@ -1,0 +1,55 @@
+:root {
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  font: 16px/150% var(--sans);
+  color: #333;
+  background: #EEF0E8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #EEF0E8;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: var(--sans);
+  color: #2E3A10;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: #6B8728;
+}
+
+a:hover {
+  color: #4A5A20;
+}
+
+input:focus, textarea:focus {
+  border-color: #6B8728 !important;
+  box-shadow: 0 0 0 2px rgba(107, 135, 40, 0.15);
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

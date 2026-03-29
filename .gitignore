@@ -1,0 +1,21 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.exe
+*.dll
+*.pdb
+
+# Data (don't commit the Excel database)
+backend/AuctionApi/Data/
+
+# Node / frontend
+node_modules/
+dist/
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
