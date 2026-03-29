@@ -48,6 +48,7 @@ export default function AuctionList() {
         {/* Sidebar / horizontal pills on mobile */}
         <aside className="auction-sidebar">
           <div className="auction-sidebar-title">Categories</div>
+          <div className="auction-sidebar-scroll-wrap">
           <div className="auction-sidebar-inner">
             {CATEGORIES.map(cat => (
               <button
@@ -71,6 +72,7 @@ export default function AuctionList() {
                 </span>
               </button>
             ))}
+          </div>
           </div>
         </aside>
 
