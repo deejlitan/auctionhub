@@ -56,8 +56,13 @@ button:disabled {
 
 /* ── Responsive utilities ─────────────────────────────────── */
 
-/* Navbar */
-.nav-links { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+/* Navbar responsive */
+.nav-burger { display: none !important; }
+@media (max-width: 768px) {
+  .nav-desktop-cats { display: none !important; }
+  .nav-desktop-auth { display: none !important; }
+  .nav-burger { display: block !important; }
+}
 
 /* AuctionList layout */
 .auction-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
