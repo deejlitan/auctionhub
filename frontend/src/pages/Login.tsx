@@ -30,7 +30,7 @@ export default function Login() {
 
   return (
     <div style={styles.page}>
-      <form onSubmit={handleSubmit} style={styles.card}>
+      <form onSubmit={handleSubmit} className="auth-card">
         <div style={styles.logoArea}>🔨</div>
         <h2 style={styles.title}>Sign In</h2>
         <p style={styles.subtitle}>Welcome back to AuctionHub</p>
@@ -47,8 +47,7 @@ export default function Login() {
 }
 
 const styles: Record<string, React.CSSProperties> = {
-  page: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#EEF0E8' },
-  card: { background: '#fff', padding: 36, borderRadius: 10, width: 360, boxShadow: '0 4px 20px rgba(0,0,0,.10)', display: 'flex', flexDirection: 'column', gap: 10, border: '1px solid #D8DDCA' },
+  page: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#EEF0E8', padding: '16px' },
   logoArea: { fontSize: 36, textAlign: 'center', marginBottom: 4 },
   title: { margin: 0, fontSize: 22, textAlign: 'center', color: '#2E3A10' },
   subtitle: { margin: '0 0 8px', fontSize: 13, textAlign: 'center', color: '#888' },

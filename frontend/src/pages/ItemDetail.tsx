@@ -89,7 +89,7 @@ export default function ItemDetail() {
     <div style={styles.page}>
       <button onClick={() => navigate(-1)} style={styles.back}>← Back</button>
 
-      <div style={styles.layout}>
+      <div className="item-layout">
         <div>
           {item.imageUrl
             ? <img src={item.imageUrl} alt={item.title} style={styles.img} />
@@ -207,19 +207,19 @@ export default function ItemDetail() {
                   </div>
                 </div>
               )}
-              <div style={styles.bidRow}>
+              <div className="bid-row">
                 <span style={styles.peso}>₱</span>
                 <input
-                  style={styles.bidInput}
+                  className="bid-input"
                   type="number"
                   step="0.01"
                   min={minBid}
                   value={bidAmount}
                   onChange={e => setBidAmount(e.target.value)}
-                  placeholder={`Price per unit, min ₱${minBid.toFixed(2)}`}
+                  placeholder={`Min ₱${minBid.toFixed(2)}`}
                   required
                 />
-                <button style={styles.bidBtn} disabled={submitting}>
+                <button className="bid-btn" style={styles.bidBtn} disabled={submitting}>
                   {submitting ? 'Placing…' : isUniform && userBid ? 'Update Bid' : 'Bid Now'}
                 </button>
               </div>
@@ -269,7 +269,7 @@ export default function ItemDetail() {
         {uniqueBids.length === 0 ? (
           <p style={{ color: '#888' }}>No bids yet. Be the first!</p>
         ) : (
-          <table style={styles.table}>
+          <div className="bids-table-wrap"><table style={styles.table}>
             <thead>
               <tr style={{ background: '#EEF0E8' }}>
                 <th style={styles.th}>#</th>
@@ -308,7 +308,7 @@ export default function ItemDetail() {
                 );
               })}
             </tbody>
-          </table>
+          </table></div>
         )}
         {isUniform && uniqueBids.length > 0 && (
           <p style={{ marginTop: 10, fontSize: 13, color: '#888' }}>
@@ -321,9 +321,8 @@ export default function ItemDetail() {
 }
 
 const styles: Record<string, React.CSSProperties> = {
-  page: { maxWidth: 900, margin: '0 auto', padding: '24px 16px', background: '#F4F5F0', minHeight: '100vh' },
+  page: { maxWidth: 900, margin: '0 auto', padding: '16px', background: '#F4F5F0', minHeight: '100vh' },
   back: { background: 'none', border: 'none', color: '#6B8728', cursor: 'pointer', fontSize: 14, marginBottom: 16, padding: 0, fontWeight: 600 },
-  layout: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32, marginBottom: 40 },
   img: { width: '100%', borderRadius: 8, objectFit: 'cover', maxHeight: 400 },
   imgPlaceholder: { height: 300, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 80, background: '#EEF0E8', borderRadius: 8 },
   title: { margin: '0 0 12px', fontSize: 24, color: '#2E3A10' },
@@ -341,10 +340,8 @@ const styles: Record<string, React.CSSProperties> = {
   bidderInfo: { fontSize: 14, color: '#555', marginBottom: 14 },
   bidForm: { background: '#F0F4E4', border: '1px solid #C5D48A', borderRadius: 8, padding: 20 },
   bidHint: { margin: '0 0 10px', fontSize: 12, color: '#6B8728' },
-  bidRow: { display: 'flex', alignItems: 'center', gap: 8 },
-  peso: { fontSize: 20, color: '#6B8728', fontWeight: 700 },
-  bidInput: { flex: 1, padding: '10px 12px', border: '1px solid #C5D48A', borderRadius: 4, fontSize: 16, background: '#fff' },
-  bidBtn: { padding: '10px 20px', background: '#6B8728', color: '#fff', border: 'none', borderRadius: 4, fontWeight: 700, cursor: 'pointer', fontSize: 15 },
+  peso: { fontSize: 20, color: '#6B8728', fontWeight: 700, flexShrink: 0 },
+  bidBtn: { padding: '10px 20px', background: '#6B8728', color: '#fff', border: 'none', borderRadius: 4, fontWeight: 700, cursor: 'pointer', fontSize: 15, whiteSpace: 'nowrap' as const },
   error: { color: '#c0392b', fontSize: 13, margin: '0 0 10px', background: '#fdf0f0', padding: '6px 10px', borderRadius: 4 },
   success: { color: '#6B8728', fontSize: 13, margin: '0 0 10px', fontWeight: 600 },
   loginNote: { fontSize: 12, color: '#888', marginTop: 8 },

@@ -53,3 +53,59 @@ button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+/* ── Responsive utilities ─────────────────────────────────── */
+
+/* Navbar */
+.nav-links { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+/* AuctionList layout */
+.auction-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 24px; align-items: flex-start; }
+.auction-sidebar { width: 200px; flex-shrink: 0; background: #fff; border-radius: 8px; border: 1px solid #D8DDCA; padding: 12px; position: sticky; top: 72px; }
+.auction-sidebar-title { font-size: 12px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; padding: 0 8px; }
+.auction-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+.auction-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+
+/* ItemDetail */
+.item-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+.bid-row { display: flex; align-items: center; gap: 8px; }
+.bid-input { flex: 1; padding: 10px 12px; border: 1px solid #C5D48A; border-radius: 4px; font-size: 16px; background: #fff; min-width: 0; }
+.bids-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* Auth / Create cards */
+.auth-card { background: #fff; padding: 36px; border-radius: 10px; width: 360px; box-shadow: 0 4px 20px rgba(0,0,0,.10); display: flex; flex-direction: column; gap: 10px; border: 1px solid #D8DDCA; }
+.create-card { background: #fff; padding: 36px; border-radius: 10px; width: 100%; max-width: 520px; box-shadow: 0 4px 20px rgba(0,0,0,.10); display: flex; flex-direction: column; gap: 10px; border: 1px solid #D8DDCA; }
+
+/* ── Mobile (≤ 768px) ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .auction-inner { flex-direction: column; gap: 0; }
+
+  .auction-sidebar {
+    width: 100%;
+    position: static;
+    padding: 8px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin-bottom: 16px;
+  }
+  .auction-sidebar-title { display: none; }
+  .auction-sidebar-inner { display: flex; overflow-x: auto; gap: 6px; padding-bottom: 4px; scrollbar-width: none; }
+  .auction-sidebar-inner::-webkit-scrollbar { display: none; }
+
+  .auction-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+
+  .item-layout { grid-template-columns: 1fr; gap: 16px; }
+
+  .bid-row { flex-wrap: wrap; }
+  .bid-row .bid-btn { width: 100%; margin-top: 4px; }
+
+  .auth-card { width: 100%; padding: 24px 20px; }
+  .create-card { padding: 24px 20px; }
+}
+
+@media (max-width: 480px) {
+  .auction-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .nav-links { gap: 10px; }
+}
